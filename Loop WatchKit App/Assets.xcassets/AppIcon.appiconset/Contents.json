@@ -41,6 +41,7 @@
       "subtype" : "38mm"
     },
     {
+      "filename" : "Loop.png",
       "idiom" : "watch",
       "role" : "appLauncher",
       "scale" : "2x",

@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B3D7F7D279235B9008F6CDA /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3D7F7C279235B9008F6CDA /* ControlsView.swift */; };
+		6B3D7F7F279235D8008F6CDA /* DistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3D7F7E279235D8008F6CDA /* DistanceView.swift */; };
+		6B3D7F81279235E5008F6CDA /* EndConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3D7F80279235E5008F6CDA /* EndConfirmationView.swift */; };
+		6B3D7F83279235F8008F6CDA /* HeartRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3D7F82279235F8008F6CDA /* HeartRateView.swift */; };
+		6B3D7F852792360A008F6CDA /* MetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3D7F842792360A008F6CDA /* MetricsView.swift */; };
+		6B3D7F8727923617008F6CDA /* SessionPagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3D7F8627923617008F6CDA /* SessionPagingView.swift */; };
+		6B3D7F892792361E008F6CDA /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3D7F882792361E008F6CDA /* StartView.swift */; };
+		6B3D7F8B27923628008F6CDA /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3D7F8A27923628008F6CDA /* SummaryView.swift */; };
+		6B3D7F8D27923640008F6CDA /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3D7F8C27923640008F6CDA /* LocationViewModel.swift */; };
+		6B3D7F8F2792364A008F6CDA /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3D7F8E2792364A008F6CDA /* WorkoutManager.swift */; };
 		6B881B2127911D3A0053D093 /* LoopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B881B2027911D3A0053D093 /* LoopApp.swift */; };
 		6B881B2327911D3A0053D093 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B881B2227911D3A0053D093 /* ContentView.swift */; };
 		6B881B2527911D3B0053D093 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B881B2427911D3B0053D093 /* Assets.xcassets */; };
@@ -14,11 +24,10 @@
 		6B881B3227911D3B0053D093 /* LoopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B881B3127911D3B0053D093 /* LoopTests.swift */; };
 		6B881B3C27911D3B0053D093 /* LoopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B881B3B27911D3B0053D093 /* LoopUITests.swift */; };
 		6B881B3E27911D3B0053D093 /* LoopUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B881B3D27911D3B0053D093 /* LoopUITestsLaunchTests.swift */; };
-		6B881B4227911D3B0053D093 /* Loop WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6B881B4127911D3B0053D093 /* Loop WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6B881B4227911D3B0053D093 /* Loop.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6B881B4127911D3B0053D093 /* Loop.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6B881B4727911D3B0053D093 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B881B4627911D3B0053D093 /* Assets.xcassets */; };
 		6B881B4D27911D3B0053D093 /* Loop WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6B881B4C27911D3B0053D093 /* Loop WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6B881B5227911D3B0053D093 /* LoopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B881B5127911D3B0053D093 /* LoopApp.swift */; };
-		6B881B5427911D3B0053D093 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B881B5327911D3B0053D093 /* ContentView.swift */; };
 		6B881B5627911D3B0053D093 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B881B5527911D3B0053D093 /* NotificationController.swift */; };
 		6B881B5827911D3B0053D093 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B881B5727911D3B0053D093 /* NotificationView.swift */; };
 		6B881B5A27911D3B0053D093 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B881B5927911D3B0053D093 /* ComplicationController.swift */; };
@@ -27,6 +36,9 @@
 		6B881B6B27911D3C0053D093 /* Loop_WatchKit_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B881B6A27911D3C0053D093 /* Loop_WatchKit_AppTests.swift */; };
 		6B881B7527911D3C0053D093 /* Loop_WatchKit_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B881B7427911D3C0053D093 /* Loop_WatchKit_AppUITests.swift */; };
 		6B881B7727911D3C0053D093 /* Loop_WatchKit_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B881B7627911D3C0053D093 /* Loop_WatchKit_AppUITestsLaunchTests.swift */; };
+		6B881B9227911E160053D093 /* FirstScreenConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B881B9127911E160053D093 /* FirstScreenConfigView.swift */; };
+		6B881B96279121370053D093 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B881B95279121370053D093 /* HealthKit.framework */; };
+		6BF8A66727923243001F4292 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BF8A66627923243001F4292 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +104,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				6B881B4227911D3B0053D093 /* Loop WatchKit App.app in Embed Watch Content */,
+				6B881B4227911D3B0053D093 /* Loop.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +112,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6B3D7F7C279235B9008F6CDA /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
+		6B3D7F7E279235D8008F6CDA /* DistanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceView.swift; sourceTree = "<group>"; };
+		6B3D7F80279235E5008F6CDA /* EndConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndConfirmationView.swift; sourceTree = "<group>"; };
+		6B3D7F82279235F8008F6CDA /* HeartRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateView.swift; sourceTree = "<group>"; };
+		6B3D7F842792360A008F6CDA /* MetricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsView.swift; sourceTree = "<group>"; };
+		6B3D7F8627923617008F6CDA /* SessionPagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionPagingView.swift; sourceTree = "<group>"; };
+		6B3D7F882792361E008F6CDA /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		6B3D7F8A27923628008F6CDA /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		6B3D7F8C27923640008F6CDA /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		6B3D7F8E2792364A008F6CDA /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
+		6B3D7F9127923996008F6CDA /* Loop WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Loop WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		6B881B1D27911D3A0053D093 /* Loop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B881B2027911D3A0053D093 /* LoopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopApp.swift; sourceTree = "<group>"; };
 		6B881B2227911D3A0053D093 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,11 +133,10 @@
 		6B881B3727911D3B0053D093 /* LoopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B881B3B27911D3B0053D093 /* LoopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopUITests.swift; sourceTree = "<group>"; };
 		6B881B3D27911D3B0053D093 /* LoopUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		6B881B4127911D3B0053D093 /* Loop WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Loop WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B881B4127911D3B0053D093 /* Loop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B881B4627911D3B0053D093 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B881B4C27911D3B0053D093 /* Loop WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Loop WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B881B5127911D3B0053D093 /* LoopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopApp.swift; sourceTree = "<group>"; };
-		6B881B5327911D3B0053D093 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6B881B5527911D3B0053D093 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		6B881B5727911D3B0053D093 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		6B881B5927911D3B0053D093 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
@@ -127,6 +149,10 @@
 		6B881B7027911D3C0053D093 /* Loop WatchKit AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Loop WatchKit AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B881B7427911D3C0053D093 /* Loop_WatchKit_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loop_WatchKit_AppUITests.swift; sourceTree = "<group>"; };
 		6B881B7627911D3C0053D093 /* Loop_WatchKit_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loop_WatchKit_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6B881B9127911E160053D093 /* FirstScreenConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenConfigView.swift; sourceTree = "<group>"; };
+		6B881B93279121370053D093 /* Loop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Loop.entitlements; sourceTree = "<group>"; };
+		6B881B95279121370053D093 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		6BF8A66627923243001F4292 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.3.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B881B96279121370053D093 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BF8A66727923243001F4292 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +203,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B3D7F9027923767008F6CDA /* idk what this is */ = {
+			isa = PBXGroup;
+			children = (
+				6B3D7F9127923996008F6CDA /* Loop WatchKit Extension.entitlements */,
+				6B881B5527911D3B0053D093 /* NotificationController.swift */,
+				6B881B5727911D3B0053D093 /* NotificationView.swift */,
+				6B881B5927911D3B0053D093 /* ComplicationController.swift */,
+				6B881B6127911D3C0053D093 /* PushNotificationPayload.apns */,
+				6B881B5D27911D3C0053D093 /* Preview Content */,
+			);
+			name = "idk what this is";
+			sourceTree = "<group>";
+		};
+		6B3D7F92279264F5008F6CDA /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				6B3D7F8C27923640008F6CDA /* LocationViewModel.swift */,
+				6B3D7F8E2792364A008F6CDA /* WorkoutManager.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		6B3D7F93279264FF008F6CDA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6B3D7F7C279235B9008F6CDA /* ControlsView.swift */,
+				6B3D7F7E279235D8008F6CDA /* DistanceView.swift */,
+				6B3D7F80279235E5008F6CDA /* EndConfirmationView.swift */,
+				6B3D7F82279235F8008F6CDA /* HeartRateView.swift */,
+				6B3D7F842792360A008F6CDA /* MetricsView.swift */,
+				6B3D7F8627923617008F6CDA /* SessionPagingView.swift */,
+				6B3D7F882792361E008F6CDA /* StartView.swift */,
+				6B3D7F8A27923628008F6CDA /* SummaryView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		6B881B1427911D3A0053D093 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +251,7 @@
 				6B881B6927911D3C0053D093 /* Loop WatchKit AppTests */,
 				6B881B7327911D3C0053D093 /* Loop WatchKit AppUITests */,
 				6B881B1E27911D3A0053D093 /* Products */,
+				6B881B94279121370053D093 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,7 +261,7 @@
 				6B881B1D27911D3A0053D093 /* Loop.app */,
 				6B881B2D27911D3B0053D093 /* LoopTests.xctest */,
 				6B881B3727911D3B0053D093 /* LoopUITests.xctest */,
-				6B881B4127911D3B0053D093 /* Loop WatchKit App.app */,
+				6B881B4127911D3B0053D093 /* Loop.app */,
 				6B881B4C27911D3B0053D093 /* Loop WatchKit Extension.appex */,
 				6B881B6627911D3C0053D093 /* Loop WatchKit AppTests.xctest */,
 				6B881B7027911D3C0053D093 /* Loop WatchKit AppUITests.xctest */,
@@ -206,8 +272,10 @@
 		6B881B1F27911D3A0053D093 /* Loop */ = {
 			isa = PBXGroup;
 			children = (
+				6B881B93279121370053D093 /* Loop.entitlements */,
 				6B881B2027911D3A0053D093 /* LoopApp.swift */,
 				6B881B2227911D3A0053D093 /* ContentView.swift */,
+				6B881B9127911E160053D093 /* FirstScreenConfigView.swift */,
 				6B881B2427911D3B0053D093 /* Assets.xcassets */,
 				6B881B2627911D3B0053D093 /* Preview Content */,
 			);
@@ -251,14 +319,11 @@
 			isa = PBXGroup;
 			children = (
 				6B881B5127911D3B0053D093 /* LoopApp.swift */,
-				6B881B5327911D3B0053D093 /* ContentView.swift */,
-				6B881B5527911D3B0053D093 /* NotificationController.swift */,
-				6B881B5727911D3B0053D093 /* NotificationView.swift */,
-				6B881B5927911D3B0053D093 /* ComplicationController.swift */,
+				6B3D7F92279264F5008F6CDA /* Logic */,
+				6B3D7F93279264FF008F6CDA /* Views */,
 				6B881B5B27911D3C0053D093 /* Assets.xcassets */,
 				6B881B6027911D3C0053D093 /* Info.plist */,
-				6B881B6127911D3C0053D093 /* PushNotificationPayload.apns */,
-				6B881B5D27911D3C0053D093 /* Preview Content */,
+				6B3D7F9027923767008F6CDA /* idk what this is */,
 			);
 			path = "Loop WatchKit Extension";
 			sourceTree = "<group>";
@@ -286,6 +351,15 @@
 				6B881B7627911D3C0053D093 /* Loop_WatchKit_AppUITestsLaunchTests.swift */,
 			);
 			path = "Loop WatchKit AppUITests";
+			sourceTree = "<group>";
+		};
+		6B881B94279121370053D093 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6BF8A66627923243001F4292 /* HealthKit.framework */,
+				6B881B95279121370053D093 /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,7 +434,7 @@
 			);
 			name = "Loop WatchKit App";
 			productName = "Loop WatchKit App";
-			productReference = 6B881B4127911D3B0053D093 /* Loop WatchKit App.app */;
+			productReference = 6B881B4127911D3B0053D093 /* Loop.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
 		6B881B4B27911D3B0053D093 /* Loop WatchKit Extension */ = {
@@ -541,6 +615,7 @@
 			files = (
 				6B881B2327911D3A0053D093 /* ContentView.swift in Sources */,
 				6B881B2127911D3A0053D093 /* LoopApp.swift in Sources */,
+				6B881B9227911E160053D093 /* FirstScreenConfigView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,11 +640,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B3D7F8B27923628008F6CDA /* SummaryView.swift in Sources */,
+				6B3D7F8727923617008F6CDA /* SessionPagingView.swift in Sources */,
+				6B3D7F8F2792364A008F6CDA /* WorkoutManager.swift in Sources */,
 				6B881B5627911D3B0053D093 /* NotificationController.swift in Sources */,
-				6B881B5427911D3B0053D093 /* ContentView.swift in Sources */,
+				6B3D7F892792361E008F6CDA /* StartView.swift in Sources */,
+				6B3D7F7F279235D8008F6CDA /* DistanceView.swift in Sources */,
 				6B881B5A27911D3B0053D093 /* ComplicationController.swift in Sources */,
 				6B881B5227911D3B0053D093 /* LoopApp.swift in Sources */,
+				6B3D7F83279235F8008F6CDA /* HeartRateView.swift in Sources */,
+				6B3D7F852792360A008F6CDA /* MetricsView.swift in Sources */,
+				6B3D7F7D279235B9008F6CDA /* ControlsView.swift in Sources */,
+				6B3D7F8D27923640008F6CDA /* LocationViewModel.swift in Sources */,
 				6B881B5827911D3B0053D093 /* NotificationView.swift in Sources */,
+				6B3D7F81279235E5008F6CDA /* EndConfirmationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,6 +825,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Loop WatchKit Extension/Loop WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Loop WatchKit Extension/Preview Content\"";
@@ -748,9 +833,17 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Loop WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Loop WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CFBundleDisplayName = Loop;
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = Loop_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = asdf;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = slakdjfh;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Your workout related data will be used to display your saved workouts in MyWorkouts.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Your workout related data will be used to display your saved workouts in MyWorkouts.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = asdfasdfasdfasdfas;
+				INFOPLIST_KEY_NSLocationUsageDescription = djuiuwii;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = jkdjiwk;
+				INFOPLIST_KEY_NSMotionUsageDescription = jkdkjkjkjdkjd;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -773,6 +866,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Loop WatchKit Extension/Loop WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Loop WatchKit Extension/Preview Content\"";
@@ -780,9 +874,17 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Loop WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Loop WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CFBundleDisplayName = Loop;
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = Loop_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = asdf;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = slakdjfh;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Your workout related data will be used to display your saved workouts in MyWorkouts.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Your workout related data will be used to display your saved workouts in MyWorkouts.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = asdfasdfasdfasdfas;
+				INFOPLIST_KEY_NSLocationUsageDescription = djuiuwii;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = jkdjiwk;
+				INFOPLIST_KEY_NSMotionUsageDescription = jkdkjkjkjdkjd;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -813,12 +915,11 @@
 				DEVELOPMENT_TEAM = 3G8EEABD94;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = Loop_WatchKit_Extension;
-				INFOPLIST_KEY_CFBundleDisplayName = "Loop WatchKit App";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.allyrilling.Loop;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.allyrilling.Loop.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Loop;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -839,12 +940,11 @@
 				DEVELOPMENT_TEAM = 3G8EEABD94;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = Loop_WatchKit_Extension;
-				INFOPLIST_KEY_CFBundleDisplayName = "Loop WatchKit App";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.allyrilling.Loop;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.allyrilling.Loop.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Loop;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -860,6 +960,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Loop/Loop.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Loop/Preview Content\"";
@@ -869,6 +970,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
@@ -882,7 +984,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -891,6 +993,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Loop/Loop.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Loop/Preview Content\"";
@@ -900,6 +1003,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
@@ -913,7 +1017,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

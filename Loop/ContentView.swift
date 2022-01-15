@@ -9,8 +9,42 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            VStack {
+                
+                Rectangle()
+                    .foregroundColor(.white)
+                    .border(Color.blue)
+                    .frame(width: 300, height: 430)
+                    .padding()
+                
+                
+                NavigationLink(destination: FirstScreenConfigView()) {
+                        Text("First Screen")
+                }.padding()
+                .foregroundColor(.black)
+                .background(RoundedRectangle(cornerRadius: 20)
+                                .foregroundColor(.blue)
+                                .frame(width: 200))
+                
+                NavigationLink(destination: FirstScreenConfigView()) {
+                        Text("Second Screen")
+                }.padding()
+                .foregroundColor(.black)
+                .background(RoundedRectangle(cornerRadius: 20)
+                                .foregroundColor(.blue)
+                                .frame(width: 200))
+                
+                NavigationLink(destination: FirstScreenConfigView()) {
+                        Text("Controls Screen")
+                }.padding()
+                .foregroundColor(.black)
+                .background(RoundedRectangle(cornerRadius: 20)
+                                .foregroundColor(.blue)
+                                .frame(width: 200))
+                
+            }.navigationTitle("Customize Interface")
+        }
     }
 }
 

@@ -9,13 +9,24 @@ import SwiftUI
 
 @main
 struct LoopApp: App {
+    @StateObject private var workoutManager = WorkoutManager()
+
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView()
+                StartView()
             }
+            .sheet(isPresented: $workoutManager.showingSummaryView) {
+                SummaryView()
+            }
+            .sheet(isPresented: $workoutManager.showingConfirmationView) {
+                EndConfirmationView()
+            }
+            .environmentObject(workoutManager)
         }
-
+        
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")
+        
     }
+    
 }
