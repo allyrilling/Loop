@@ -17,7 +17,7 @@ struct StartView: View {
             NavigationLink("Start\nRun", destination: SessionPagingView(),
                            tag: .running, selection: $workoutManager.selectedWorkout)
                 .tint(.green)
-                .font(.title)
+                .font(.system(.title, design: .rounded))
                 .padding(EdgeInsets(top: 15, leading: 5, bottom: 15, trailing: 5))
         }//.foregroundColor(.green)
         .onAppear {

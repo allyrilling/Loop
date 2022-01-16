@@ -119,9 +119,12 @@ class WorkoutManager: NSObject, ObservableObject {
     @Published var running = false
 
     func togglePause() {
+        
         if running == true {
+            WKInterfaceDevice.current().play(.failure)
             self.pause()
         } else {
+            WKInterfaceDevice.current().play(.success)
             resume()
         }
     }
