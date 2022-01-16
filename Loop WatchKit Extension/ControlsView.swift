@@ -12,24 +12,20 @@ struct ControlsView: View {
 
     var body: some View {
         
-        HStack {
-            VStack {
+        VStack {
+            HStack {
                 Button {
-                    // should show confirmation here instead
-                    workoutManager.confirmEnd()
-                    workoutManager.togglePause() // pause while we go to confirm screen
+                    WKInterfaceDevice.current().enableWaterLock()
                 } label: {
                     VStack {
                         Spacer()
-                        Image(systemName: "xmark")
+                        Image(systemName: "drop.fill")
                         Spacer()
                     }
                 }
-                .tint(.red)
-                .font(.title2)
-//                Text("End")
-            }
-            VStack {
+                .tint(.blue)
+                .font(.title)
+                
                 Button {
                     workoutManager.togglePause()
                 } label: {
@@ -40,10 +36,27 @@ struct ControlsView: View {
                     }
                 }
                 .tint(.yellow)
-                .font(.title2)
+                .font(.title)
 //                Text(workoutManager.running ? "Pause" : "Resume")
             }
+            
+            Button {
+                // should show confirmation here instead
+                workoutManager.confirmEnd()
+                workoutManager.togglePause() // pause while we go to confirm screen
+            } label: {
+                VStack {
+                    Spacer()
+                    Image(systemName: "xmark")
+                    Spacer()
+                }
+            }
+            .tint(.red)
+            .font(.title)
+//                Text("End")
+            
         }
+        
     }
 }
 

@@ -12,7 +12,7 @@ struct SessionPagingView: View {
     @EnvironmentObject var workoutManager: WorkoutManager
     @Environment(\.isLuminanceReduced) var isLuminanceReduced
     @State private var selection: Tab = .hr
-    @State private var crownValue = 0.0
+//    @State private var crownValue = 0.0
 
     enum Tab {
         case controls, hr, distance, nowPlaying
@@ -36,7 +36,7 @@ struct SessionPagingView: View {
         .onChange(of: isLuminanceReduced) { _ in
             displayMetricsView()
         }
-        .digitalCrownRotation($crownValue)
+//        .digitalCrownRotation($crownValue)
         
     }
 

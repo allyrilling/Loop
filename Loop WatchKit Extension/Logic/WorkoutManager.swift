@@ -8,6 +8,7 @@
 import Foundation
 import HealthKit
 import CoreLocation
+import WatchKit
 
 class WorkoutManager: NSObject, ObservableObject {
     @Published var locationViewModel: LocationViewModel? = LocationViewModel()
@@ -82,6 +83,7 @@ class WorkoutManager: NSObject, ObservableObject {
         locationViewModel?.routeBuilder = HKWorkoutRouteBuilder(healthStore: healthStore, device: nil)
         print("CREATED ROUTE BUILDER - WorkoutManager: func startWorkout")
         
+        WKInterfaceDevice.current().enableWaterLock()
     }
 
     // Request authorization to access HealthKit.
