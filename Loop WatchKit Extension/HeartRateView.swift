@@ -29,16 +29,6 @@ struct HeartRateView: View {
             .frame(maxWidth: .infinity)
             .ignoresSafeArea(edges: .bottom)
             .scenePadding()
-        }.focusable(true)
-        .digitalCrownRotation($scrollAmount, from: -100.0, through: 100.0)
-        .onChange(of: scrollAmount) { value in
-            if(value < -9.0) {
-                workoutManager.pause()
-            }
-            
-            if(value > 9.0) {
-                workoutManager.resume()
-            }
         }
     }
 }

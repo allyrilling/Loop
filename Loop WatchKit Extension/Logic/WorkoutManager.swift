@@ -211,12 +211,19 @@ class WorkoutManager: NSObject, ObservableObject {
 
 // MARK: - HKWorkoutSessionDelegate
 extension WorkoutManager: HKWorkoutSessionDelegate {
+    
+    func workoutSession(_ workoutSession: HKWorkoutSession, didGenerate event: HKWorkoutEvent) {
+        if(event.type == HKWorkoutEventType.pauseOrResumeRequest) {
+           togglePause()
+       }
+    }
+    
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState,
                         from fromState: HKWorkoutSessionState, date: Date) {
         DispatchQueue.main.async {
             self.running = toState == .running
         }
-
+        
         // Wait for the session to transition states before ending the builder.
         if toState == .ended {
 //            // TODO: change here
