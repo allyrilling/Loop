@@ -11,6 +11,8 @@ import CoreLocation
 import WatchKit
 
 class WorkoutManager: NSObject, ObservableObject {
+    
+    // MARK: - VARS AND PROPERTIES
     @Published var locationViewModel: LocationViewModel? = LocationViewModel()
     
     var selectedWorkout: HKWorkoutActivityType? {
@@ -23,7 +25,7 @@ class WorkoutManager: NSObject, ObservableObject {
     @Published var showingSummaryView: Bool = false {
         didSet {
             if showingSummaryView == false {
-                print("reset workout here")
+//                print("reset workout here")
                 resetWorkout()
             }
         }
@@ -32,7 +34,7 @@ class WorkoutManager: NSObject, ObservableObject {
     @Published var showingConfirmationView: Bool = false {
         didSet {
             if showingConfirmationView == false {
-                print("showingConfirmationView")
+//                print("showingConfirmationView")
             }
         }
     }
@@ -40,58 +42,17 @@ class WorkoutManager: NSObject, ObservableObject {
     let healthStore = HKHealthStore()
     var session: HKWorkoutSession?
     var builder: HKLiveWorkoutBuilder?
-
-    // Start the workout.
-    func startWorkout(workoutType: HKWorkoutActivityType) {
-        let configuration = HKWorkoutConfiguration()
-        configuration.activityType = .running
-        configuration.locationType = .outdoor
-        
-        // TODO here
-//        locationViewModel.locationManager.startUpdatingLocation()
-
-        // Create the session and obtain the workout builder.
-        do {
-            session = try HKWorkoutSession(healthStore: healthStore, configuration: configuration)
-            builder = session?.associatedWorkoutBuilder()
-        } catch {
-            // Handle any exceptions.
-            print("ERROR - WorkoutManager: startWorkout")
-            return
-        }
-
-        // Setup session and builder.
-        session?.delegate = self
-        builder?.delegate = self
-
-        // Set the workout builder's data source.
-        builder?.dataSource = HKLiveWorkoutDataSource(healthStore: healthStore,
-                                                     workoutConfiguration: configuration)
-        
-        // Start the workout session and begin data collection.
-        let startDate = Date()
-        session?.startActivity(with: startDate)
-        builder?.beginCollection(withStart: startDate) { (success, error) in
-            // The workout has started.
-            print("WORKOUT SESSION HAS STARTED - WorkoutManager: func startWorkout")
-        }
-        
-        locationViewModel = LocationViewModel()
-        print("MAKE NEW LOCATIONVIEWMODEL - WorkoutManager: func startWorkout")
-        
-        // Create the route builder.
-        locationViewModel?.routeBuilder = HKWorkoutRouteBuilder(healthStore: healthStore, device: nil)
-        print("CREATED ROUTE BUILDER - WorkoutManager: func startWorkout")
-        
-        WKInterfaceDevice.current().enableWaterLock()
-    }
-
-    // Request authorization to access HealthKit.
+    
+    @Published var running = false // The app's workout state.
+    
+    // MARK: - FUNCTIONS
+    
+    // MARK: REQUEST AUTH
     func requestAuthorization() {
         // The quantity type to write to the health store.
         let typesToShare: Set = [
             HKQuantityType.workoutType(),
-            HKSeriesType.workoutRoute()
+            HKSeriesType.workoutRoute(),
         ]
 
         // The quantity types to read from the health store.
@@ -113,13 +74,49 @@ class WorkoutManager: NSObject, ObservableObject {
         
     }
 
-    // MARK: - Session State Control
+    // MARK: START WORKOUT
+    func startWorkout(workoutType: HKWorkoutActivityType) {
+        let configuration = HKWorkoutConfiguration()
+        configuration.activityType = .running
+        configuration.locationType = .outdoor
+        
 
-    // The app's workout state.
-    @Published var running = false
+        // Create the session and obtain the workout builder.
+        do {
+            session = try HKWorkoutSession(healthStore: healthStore, configuration: configuration)
+            builder = session?.associatedWorkoutBuilder()
+        } catch {
+            // Handle any exceptions.
+            return
+        }
+
+        // Setup session and builder.
+        session?.delegate = self
+        builder?.delegate = self
+
+        // Set the workout builder's data source.
+        builder?.dataSource = HKLiveWorkoutDataSource(healthStore: healthStore,
+                                                     workoutConfiguration: configuration)
+        
+        // Start the workout session and begin data collection.
+        let startDate = Date()
+        session?.startActivity(with: startDate)
+        builder?.beginCollection(withStart: startDate) { (success, error) in
+            // The workout has started.
+        }
+        
+        locationViewModel = LocationViewModel()
+        
+        // Create the route builder.
+        locationViewModel?.routeBuilder = HKWorkoutRouteBuilder(healthStore: healthStore, device: nil)
+        
+        // to enable steps collection
+        builder?.dataSource?.enableCollection(for: HKQuantityType.quantityType(forIdentifier: .stepCount)!, predicate: nil)
+        
+    }
+
 
     func togglePause() {
-        
         if running == true {
             WKInterfaceDevice.current().play(.failure)
             self.pause()
@@ -137,45 +134,46 @@ class WorkoutManager: NSObject, ObservableObject {
         session?.resume()
     }
 
+    func confirmEnd() {
+        showingConfirmationView = true
+    }
+    
     func endWorkout() {
         showingConfirmationView = false
         session?.end()
         showingSummaryView = true
         
-        
         let seconds = 1.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            print("SAVED WORKOUT AFTER END - WorkoutManager: func endWorkout")
+//            print("SAVED WORKOUT AFTER END - WorkoutManager: func endWorkout")
             // Put your code which should be executed with a delay here
-            self.locationViewModel?.routeBuilder?.finishRoute(with: self.workout!, metadata: ["METADATA KEY" : "metadata value"], completion: { (newRoute, error)  in
-                print("ERROR IN SAVING WORKOUT - WorkoutManager: func endWorkout")
+            self.locationViewModel?.routeBuilder?.finishRoute(with: self.workout!, metadata: nil, completion: { (newRoute, error)  in
+//                print("ERROR IN SAVING WORKOUT - WorkoutManager: func endWorkout")
                 print(error)
             })
 
             self.builder?.endCollection(withEnd: Date()) { (success, error) in
-
                 self.builder?.finishWorkout { (workout, error) in
-                    print("here")
+//                    print("here")
                     DispatchQueue.main.async() {
                         // Update the user interface.
                     }
                 }
             }
-
+            
         }
+        
+//        resetWorkout()
         
     }
     
-    // HERERERER
-    func confirmEnd() {
-        showingConfirmationView = true
-    }
 
     // MARK: - Workout Metrics
     @Published var averageHeartRate: Double = 0
     @Published var heartRate: Double = 0
     @Published var activeEnergy: Double = 0
     @Published var distance: Double = 0
+    @Published var elevation: Double = 0
     @Published var workout: HKWorkout?
 
     func updateForStatistics(_ statistics: HKStatistics?) {
@@ -231,12 +229,6 @@ extension WorkoutManager: HKWorkoutSessionDelegate {
         
         // Wait for the session to transition states before ending the builder.
         if toState == .ended {
-//            // TODO: change here
-//            self.locationViewModel.routeBuilder?.finishRoute(with: self.workout!, metadata: ["METADATA KEY" : "metadata value"], completion: { (newRoute, error)  in
-//                print("ERROR IN SAVING WORKOUT - WorkoutManager: func endWorkout")
-//                print(error)
-//            })
-            
             builder?.endCollection(withEnd: date) { (success, error) in
                 self.builder?.finishWorkout { (workout, error) in
                     DispatchQueue.main.async {
