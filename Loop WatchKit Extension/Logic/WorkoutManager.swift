@@ -60,6 +60,8 @@ class WorkoutManager: NSObject, ObservableObject {
             HKQuantityType.quantityType(forIdentifier: .heartRate)!,
             HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)!,
             HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+            HKQuantityType.quantityType(forIdentifier: .stepCount)!,
+            HKQuantityType.quantityType(forIdentifier: .vo2Max)!,
             HKSeriesType.workoutType(),
             HKSeriesType.workoutRoute(),
             HKObjectType.activitySummaryType()
@@ -112,6 +114,12 @@ class WorkoutManager: NSObject, ObservableObject {
         
         // to enable steps collection
         builder?.dataSource?.enableCollection(for: HKQuantityType.quantityType(forIdentifier: .stepCount)!, predicate: nil)
+        builder?.dataSource?.enableCollection(for: HKQuantityType.quantityType(forIdentifier: .vo2Max)!, predicate: nil)
+        
+        // TODO: was here idk if this works in tempo
+        self.builder?.addMetadata(["Elevation Ascended" : "432"], completion: {saved,_ in
+            print(saved)
+        })
         
     }
 
@@ -139,31 +147,49 @@ class WorkoutManager: NSObject, ObservableObject {
     }
     
     func endWorkout() {
+        self.session?.end()
         showingConfirmationView = false
-        session?.end()
         showingSummaryView = true
         
-        let seconds = 1.0
+//        self.locationViewModel?.routeBuilder?.finishRoute(with: self.workout!, metadata: nil, completion: { (newRoute, error)  in
+//            guard newRoute != nil else {
+//                print(error)
+//                return
+//            }
+//            print("ROUTE SAVED!!")
+//        })
+//
+//        self.builder?.endCollection(withEnd: Date()) { (success, error) in
+//            self.builder?.finishWorkout { (workout, error) in
+//                DispatchQueue.main.async() {
+//                    // Update the user interface.
+//                }
+//            }
+//        }
+        
+        let seconds = 3.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-//            print("SAVED WORKOUT AFTER END - WorkoutManager: func endWorkout")
+            
+            print(self.workout)
+
             // Put your code which should be executed with a delay here
             self.locationViewModel?.routeBuilder?.finishRoute(with: self.workout!, metadata: nil, completion: { (newRoute, error)  in
-//                print("ERROR IN SAVING WORKOUT - WorkoutManager: func endWorkout")
-                print(error)
+                guard newRoute != nil else {
+                    print(error)
+                    return
+                }
+                print("ROUTE SAVED!!")
             })
 
             self.builder?.endCollection(withEnd: Date()) { (success, error) in
                 self.builder?.finishWorkout { (workout, error) in
-//                    print("here")
                     DispatchQueue.main.async() {
                         // Update the user interface.
                     }
                 }
             }
-            
+
         }
-        
-//        resetWorkout()
         
     }
     
@@ -173,7 +199,6 @@ class WorkoutManager: NSObject, ObservableObject {
     @Published var heartRate: Double = 0
     @Published var activeEnergy: Double = 0
     @Published var distance: Double = 0
-    @Published var elevation: Double = 0
     @Published var workout: HKWorkout?
 
     func updateForStatistics(_ statistics: HKStatistics?) {
@@ -262,6 +287,7 @@ extension WorkoutManager: HKLiveWorkoutBuilderDelegate {
             updateForStatistics(statistics)
         }
     }
+    
 }
 
 

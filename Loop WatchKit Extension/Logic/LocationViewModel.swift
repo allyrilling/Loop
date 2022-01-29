@@ -25,7 +25,6 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         super.init()
         locationManager.delegate = self
-//        print("INITIATED LOCATION MANAGER - LocationViewModel: func init")
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         
@@ -40,8 +39,6 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        print("ENTERED LOCATION MANAGER - LocationViewModel: func locationManager")
-//        print(locations)
         // Filter the raw data.
         let filteredLocations = locations.filter { (location: CLLocation) -> Bool in
             location.horizontalAccuracy <= 50.0

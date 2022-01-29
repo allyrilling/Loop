@@ -16,7 +16,8 @@ struct EndConfirmationView: View {
             Button(action: {
                 workoutManager.endWorkout()
             }, label: {
-                Text("Confirm End")
+//                Text("Confirm End")
+                Text("WAIT 3 SEC")
                 .font(.title2)
                 .frame(height: 80)
             }).tint(.red)

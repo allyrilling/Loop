@@ -56,9 +56,14 @@ struct SummaryView: View {
 //                    Text("Activity Rings")
 //                    ActivityRingsView(healthStore: workoutManager.healthStore)
 //                        .frame(width: 50, height: 50)
-                    Button("Done") {
+                    
+                    
+                    Button("WAIT 3 SEC") {
                         dismiss()
                     }
+//                    Button("Done") {
+//                        dismiss()
+//                    }
                 }
                 .scenePadding()
             }
