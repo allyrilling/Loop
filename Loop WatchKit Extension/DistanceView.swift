@@ -15,15 +15,17 @@ struct DistanceView: View {
             VStack() {
                 
                 Text("\(Measurement(value: workoutManager.distance, unit: UnitLength.meters).converted(to: UnitLength.miles).value.formatted(.number.precision(.fractionLength(2))))")
-                    .font(.system(size: 60, design: .rounded).monospacedDigit().lowercaseSmallCaps())
+//                  Text("13.99")
+                    .font(.system(size: 66, design: .rounded).monospacedDigit().lowercaseSmallCaps())
                     .foregroundColor(workoutManager.running ? .blue : .white)
+                    .fixedSize(horizontal: true, vertical: true)
                 Text("mi")
-                    .font(.system(.title, design: .rounded).monospacedDigit().lowercaseSmallCaps())
+                    .font(.system(.title2, design: .rounded).monospacedDigit().lowercaseSmallCaps())
                 
             }
             .frame(maxWidth: .infinity)
             .ignoresSafeArea(edges: .bottom)
-            .scenePadding()
+//            .scenePadding()
         }
     }
 }

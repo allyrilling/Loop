@@ -14,10 +14,13 @@ struct EndConfirmationView: View {
     var body: some View {
         VStack {
             Button(action: {
-                workoutManager.endWorkout()
+                if(!workoutManager.workoutIsEnded) {
+                    workoutManager.workoutIsEnded = true
+                    workoutManager.endWorkout()
+                }
             }, label: {
-//                Text("Confirm End")
-                Text("WAIT 3 SEC")
+                Text("Confirm End")
+//                Text("WAIT 3 SEC")
                 .font(.title2)
                 .frame(height: 80)
             }).tint(.red)
@@ -28,7 +31,7 @@ struct EndConfirmationView: View {
                 workoutManager.togglePause() // restart workout after we reject end confirmation
             }, label: {
                 Text("Resume")
-            }).tint(.yellow)
+            }).tint(.green)
         }
     }
 }

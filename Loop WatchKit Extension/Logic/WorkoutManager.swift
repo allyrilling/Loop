@@ -10,10 +10,13 @@ import HealthKit
 import CoreLocation
 import WatchKit
 
+@MainActor
 class WorkoutManager: NSObject, ObservableObject {
     
     // MARK: - VARS AND PROPERTIES
     @Published var locationViewModel: LocationViewModel? = LocationViewModel()
+    @Published var workoutIsSaved = false
+    @Published var workoutIsEnded = false
     
     var selectedWorkout: HKWorkoutActivityType? {
         didSet {
@@ -117,9 +120,9 @@ class WorkoutManager: NSObject, ObservableObject {
         builder?.dataSource?.enableCollection(for: HKQuantityType.quantityType(forIdentifier: .vo2Max)!, predicate: nil)
         
         // TODO: was here idk if this works in tempo
-        self.builder?.addMetadata(["Elevation Ascended" : "432"], completion: {saved,_ in
-            print(saved)
-        })
+//        self.builder?.addMetadata(["Elevation Ascended" : "432"], completion: {saved,_ in
+//            print(saved)
+//        })
         
     }
 
@@ -151,26 +154,16 @@ class WorkoutManager: NSObject, ObservableObject {
         showingConfirmationView = false
         showingSummaryView = true
         
-//        self.locationViewModel?.routeBuilder?.finishRoute(with: self.workout!, metadata: nil, completion: { (newRoute, error)  in
-//            guard newRoute != nil else {
-//                print(error)
-//                return
-//            }
-//            print("ROUTE SAVED!!")
-//        })
-//
-//        self.builder?.endCollection(withEnd: Date()) { (success, error) in
-//            self.builder?.finishWorkout { (workout, error) in
-//                DispatchQueue.main.async() {
-//                    // Update the user interface.
-//                }
-//            }
-//        }
-        
         let seconds = 3.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             
-            print(self.workout)
+            print(self.workout?.metadata?.keys)
+            
+//            if let workoutMetadata = self.workout?.metadata {
+//                 if let workoutElevation = workoutMetadata["HKElevationAscended"] as? HKQuantity {
+//                     print("Elevation = \(workoutElevation.doubleValue(for: HKUnit.meter()))m")
+//                 }
+//             }
 
             // Put your code which should be executed with a delay here
             self.locationViewModel?.routeBuilder?.finishRoute(with: self.workout!, metadata: nil, completion: { (newRoute, error)  in
@@ -179,6 +172,7 @@ class WorkoutManager: NSObject, ObservableObject {
                     return
                 }
                 print("ROUTE SAVED!!")
+                self.workoutIsSaved = true
             })
 
             self.builder?.endCollection(withEnd: Date()) { (success, error) in
@@ -232,6 +226,8 @@ class WorkoutManager: NSObject, ObservableObject {
         heartRate = 0
         distance = 0
         locationViewModel = nil
+        workoutIsSaved = false
+        workoutIsEnded = false
         // end routebuilder thing here so that it doesnt keep "adding data"
     }
     

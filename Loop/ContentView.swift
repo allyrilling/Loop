@@ -8,42 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    let layouts = [LayoutX(layoutName: "Layout #1"), LayoutX(layoutName: "Layout #2"), LayoutX(layoutName: "Layout #3")]
+    @State var selection: LayoutX?
+    
     var body: some View {
         NavigationView {
-            VStack {
-                Rectangle()
-                    .foregroundColor(.white)
-                    .border(Color.blue)
-                    .frame(width: 300, height: 430)
-                    .padding()
-                
-                
-                NavigationLink(destination: FirstScreenConfigView()) {
-                        Text("First Screen")
-                }.padding()
-                .foregroundColor(.black)
-                .background(RoundedRectangle(cornerRadius: 20)
-                                .foregroundColor(.blue)
-                                .frame(width: 200))
-                
-                NavigationLink(destination: FirstScreenConfigView()) {
-                        Text("Second Screen")
-                }.padding()
-                .foregroundColor(.black)
-                .background(RoundedRectangle(cornerRadius: 20)
-                                .foregroundColor(.blue)
-                                .frame(width: 200))
-                
-                NavigationLink(destination: FirstScreenConfigView()) {
-                        Text("Controls Screen")
-                }.padding()
-                .foregroundColor(.black)
-                .background(RoundedRectangle(cornerRadius: 20)
-                                .foregroundColor(.blue)
-                                .frame(width: 200))
-                
-            }.navigationTitle("Customize Interface")
+            List(layouts, id: \.self, selection: $selection) { layout in
+                LayoutRow(layout: layout).onTapGesture {
+                    print()
+                }
+            }.navigationTitle("Layouts")
         }
+    }
+}
+
+struct LayoutX: Identifiable, Hashable {
+    var layoutName: String
+    var id = UUID()
+}
+
+struct LayoutRow: View {
+    var layout: LayoutX
+    
+    var body: some View {
+        HStack {
+            Text(layout.layoutName)
+            Spacer()
+        }.padding(.all)
+        .border(Color.red)
     }
 }
 

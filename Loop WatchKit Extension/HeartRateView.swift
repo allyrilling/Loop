@@ -16,7 +16,8 @@ struct HeartRateView: View {
         TimelineView(MetricsTimelineSchedule(from: workoutManager.builder?.startDate ?? Date())) { context in
             VStack(alignment: .center) {
                 Text(workoutManager.heartRate.formatted(.number.precision(.fractionLength(0))))
-                    .font(.system(size: 75, design: .rounded).monospacedDigit().lowercaseSmallCaps())
+//                Text("999")
+                    .font(.system(size: 80, design: .rounded).monospacedDigit().lowercaseSmallCaps())
                     .foregroundColor(workoutManager.running ? .red : .white)
 
                 HStack {
