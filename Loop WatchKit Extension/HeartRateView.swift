@@ -12,13 +12,53 @@ struct HeartRateView: View {
     @EnvironmentObject var workoutManager: WorkoutManager
     @State private var scrollAmount = 1.0
     
+    var maxHR = 200.0
+
+    var zone1Ceiling: Double
+    var zone1Color = Color.blue
+    
+    var zone2Ceiling: Double
+    var zone2Color = Color.green
+    
+    var zone3Ceiling: Double
+    var zone3Color = Color.yellow
+    
+    var zone4Ceiling: Double
+    var zone4Color = Color.orange
+    
+    var zone5Color = Color.red
+    
+    init() {
+        maxHR = 200.0
+        zone1Ceiling = maxHR * 0.6
+        zone2Ceiling = maxHR * 0.7
+        zone3Ceiling = maxHR * 0.8
+        zone4Ceiling = maxHR * 0.9
+    }
+    
+    func getBpmColor(bpm: Double) -> Color {
+        if (bpm <= zone1Ceiling) {
+            return zone1Color
+        } else if (bpm > zone1Ceiling && bpm <= zone2Ceiling) {
+            return zone2Color
+        } else if (bpm > zone2Ceiling && bpm <= zone3Ceiling) {
+            return zone3Color
+        } else if (bpm > zone3Ceiling && bpm <= zone4Ceiling) {
+            return zone4Color
+        } else if (bpm > zone4Ceiling) {
+            return zone5Color
+        }
+        return Color.purple
+    }
+    
+    
     var body: some View {
         TimelineView(MetricsTimelineSchedule(from: workoutManager.builder?.startDate ?? Date())) { context in
             VStack(alignment: .center) {
                 Text(workoutManager.heartRate.formatted(.number.precision(.fractionLength(0))))
 //                Text("999")
                     .font(.system(size: 80, design: .rounded).monospacedDigit().lowercaseSmallCaps())
-                    .foregroundColor(workoutManager.running ? .red : .white)
+                    .foregroundColor(workoutManager.running ? getBpmColor(bpm: workoutManager.heartRate) : .white)
 
                 HStack {
                     Image(systemName: "heart.fill")
@@ -33,6 +73,8 @@ struct HeartRateView: View {
         }
     }
 }
+
+
 
 private struct MetricsTimelineSchedule: TimelineSchedule {
     var startDate: Date
