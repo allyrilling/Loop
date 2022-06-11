@@ -13,7 +13,6 @@ struct DistanceView: View {
     var body: some View {
         TimelineView(MetricsTimelineSchedule(from: workoutManager.builder?.startDate ?? Date())) { context in
             VStack() {
-                
                 Text("\(Measurement(value: workoutManager.distance, unit: UnitLength.meters).converted(to: UnitLength.miles).value.formatted(.number.precision(.fractionLength(2))))")
 //                  Text("13.99")
                     .font(.system(size: 66, design: .rounded).monospacedDigit().lowercaseSmallCaps())
@@ -21,7 +20,6 @@ struct DistanceView: View {
                     .fixedSize(horizontal: true, vertical: true)
                 Text("mi")
                     .font(.system(.title2, design: .rounded).monospacedDigit().lowercaseSmallCaps())
-                
             }
             .frame(maxWidth: .infinity)
             .ignoresSafeArea(edges: .bottom)

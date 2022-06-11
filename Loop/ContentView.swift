@@ -12,12 +12,17 @@ struct ContentView: View {
     @State var selection: LayoutX?
     
     var body: some View {
-        NavigationView {
-            List(layouts, id: \.self, selection: $selection) { layout in
-                LayoutRow(layout: layout).onTapGesture {
-                    print()
-                }
-            }.navigationTitle("Layouts")
+        VStack {
+            NavigationView {
+                List(layouts, id: \.self, selection: $selection) { layout in
+                    LayoutRow(layout: layout).onTapGesture {
+                        print()
+                    }
+                }.navigationTitle("Layouts")
+            }
+            Button(action: {
+                print("sync")
+            }) { Text("Sync to Strava") }
         }
     }
 }

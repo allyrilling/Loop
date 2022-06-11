@@ -11,7 +11,31 @@ import SwiftUI
 struct LoopApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                HomeTab()
+                    .tabItem {
+                        Image(systemName: "house.fill")
+                        Text("Home")
+                    }
+             
+                RunLogTab()
+                    .tabItem {
+                        Image(systemName: "bookmark.circle.fill")
+                        Text("Run Log")
+                    }
+                ExportTab()
+                    .tabItem {
+                        Image(systemName: "arrowshape.turn.up.right.circle")
+                        Text("Export")
+                    }
+             
+                WatchConfigTab()
+                    .tabItem {
+                        Image(systemName: "applewatch")
+                        Text("Watch")
+                    }
+            }
+            
         }
     }
 }

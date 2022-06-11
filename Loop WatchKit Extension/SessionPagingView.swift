@@ -7,6 +7,7 @@
 
 import SwiftUI
 import WatchKit
+import HealthKit
 
 struct SessionPagingView: View {
     @EnvironmentObject var workoutManager: WorkoutManager
@@ -36,6 +37,11 @@ struct SessionPagingView: View {
         .onChange(of: isLuminanceReduced) { _ in
             displayMetricsView()
         }
+        // TODO working here
+//        .onTapGesture(count: 2) {
+//            print("Double tapped!")
+//            workoutManager.workoutSession(workoutManager.session, didGenerate: HKWorkoutEvent.init(type: HKWorkoutEventType.segment, dateInterval: DateInterval(start: <#T##Date#>, end: <#T##Date#>), metadata: <#T##[String : Any]?#>))
+//        }
 //        .digitalCrownRotation($crownValue)
         
     }

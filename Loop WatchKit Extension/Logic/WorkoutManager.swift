@@ -149,6 +149,9 @@ class WorkoutManager: NSObject, ObservableObject {
         showingConfirmationView = true
     }
     
+    func createMarker() {
+    }
+    
     func endWorkout() {
         self.session?.end()
         showingConfirmationView = false
@@ -240,6 +243,10 @@ extension WorkoutManager: HKWorkoutSessionDelegate {
         if(event.type == HKWorkoutEventType.pauseOrResumeRequest) {
            togglePause()
        }
+            // TODO WORKING HERE
+//        if(event.type == HKWorkoutEventType.segment) {
+//            print("segment")
+//        }
     }
     
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState,

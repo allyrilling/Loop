@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B1197FD284A4B7800F92F29 /* HomeTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1197FC284A4B7800F92F29 /* HomeTab.swift */; };
+		6B1197FF284A4B9100F92F29 /* RunLogTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1197FE284A4B9100F92F29 /* RunLogTab.swift */; };
+		6B119801284A4BC900F92F29 /* WatchConfigTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B119800284A4BC900F92F29 /* WatchConfigTab.swift */; };
+		6B119805284A4C0400F92F29 /* ExportTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B119804284A4C0400F92F29 /* ExportTab.swift */; };
 		6B3D7F7D279235B9008F6CDA /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3D7F7C279235B9008F6CDA /* ControlsView.swift */; };
 		6B3D7F7F279235D8008F6CDA /* DistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3D7F7E279235D8008F6CDA /* DistanceView.swift */; };
 		6B3D7F81279235E5008F6CDA /* EndConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3D7F80279235E5008F6CDA /* EndConfirmationView.swift */; };
@@ -17,6 +21,7 @@
 		6B3D7F8B27923628008F6CDA /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3D7F8A27923628008F6CDA /* SummaryView.swift */; };
 		6B3D7F8D27923640008F6CDA /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3D7F8C27923640008F6CDA /* LocationViewModel.swift */; };
 		6B3D7F8F2792364A008F6CDA /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3D7F8E2792364A008F6CDA /* WorkoutManager.swift */; };
+		6B6C779C284AB2EC002FA3C8 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6C779B284AB2EC002FA3C8 /* Configuration.swift */; };
 		6B881B2127911D3A0053D093 /* LoopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B881B2027911D3A0053D093 /* LoopApp.swift */; };
 		6B881B2327911D3A0053D093 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B881B2227911D3A0053D093 /* ContentView.swift */; };
 		6B881B2527911D3B0053D093 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B881B2427911D3B0053D093 /* Assets.xcassets */; };
@@ -112,6 +117,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6B1197FC284A4B7800F92F29 /* HomeTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTab.swift; sourceTree = "<group>"; };
+		6B1197FE284A4B9100F92F29 /* RunLogTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunLogTab.swift; sourceTree = "<group>"; };
+		6B119800284A4BC900F92F29 /* WatchConfigTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConfigTab.swift; sourceTree = "<group>"; };
+		6B119804284A4C0400F92F29 /* ExportTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportTab.swift; sourceTree = "<group>"; };
 		6B3D7F7C279235B9008F6CDA /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
 		6B3D7F7E279235D8008F6CDA /* DistanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceView.swift; sourceTree = "<group>"; };
 		6B3D7F80279235E5008F6CDA /* EndConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndConfirmationView.swift; sourceTree = "<group>"; };
@@ -123,6 +132,7 @@
 		6B3D7F8C27923640008F6CDA /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		6B3D7F8E2792364A008F6CDA /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		6B3D7F9127923996008F6CDA /* Loop WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Loop WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		6B6C779B284AB2EC002FA3C8 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		6B881B1D27911D3A0053D093 /* Loop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B881B2027911D3A0053D093 /* LoopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopApp.swift; sourceTree = "<group>"; };
 		6B881B2227911D3A0053D093 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -278,6 +288,11 @@
 				6B881B9127911E160053D093 /* FirstScreenConfigView.swift */,
 				6B881B2427911D3B0053D093 /* Assets.xcassets */,
 				6B881B2627911D3B0053D093 /* Preview Content */,
+				6B1197FC284A4B7800F92F29 /* HomeTab.swift */,
+				6B1197FE284A4B9100F92F29 /* RunLogTab.swift */,
+				6B119800284A4BC900F92F29 /* WatchConfigTab.swift */,
+				6B119804284A4C0400F92F29 /* ExportTab.swift */,
+				6B6C779B284AB2EC002FA3C8 /* Configuration.swift */,
 			);
 			path = Loop;
 			sourceTree = "<group>";
@@ -613,8 +628,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B1197FD284A4B7800F92F29 /* HomeTab.swift in Sources */,
+				6B119801284A4BC900F92F29 /* WatchConfigTab.swift in Sources */,
 				6B881B2327911D3A0053D093 /* ContentView.swift in Sources */,
+				6B119805284A4C0400F92F29 /* ExportTab.swift in Sources */,
 				6B881B2127911D3A0053D093 /* LoopApp.swift in Sources */,
+				6B1197FF284A4B9100F92F29 /* RunLogTab.swift in Sources */,
+				6B6C779C284AB2EC002FA3C8 /* Configuration.swift in Sources */,
 				6B881B9227911E160053D093 /* FirstScreenConfigView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
