@@ -12,13 +12,13 @@ struct LoopApp: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-                HomeTab()
+                HomeTab(logic: Logic())
                     .tabItem {
                         Image(systemName: "house.fill")
                         Text("Home")
                     }
              
-                RunLogTab()
+                RunLogTab(logic: Logic())
                     .tabItem {
                         Image(systemName: "bookmark.circle.fill")
                         Text("Run Log")

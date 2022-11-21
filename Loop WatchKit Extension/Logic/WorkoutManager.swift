@@ -157,18 +157,22 @@ class WorkoutManager: NSObject, ObservableObject {
         showingConfirmationView = false
         showingSummaryView = true
         
-        let seconds = 3.0
+//        builder?.endCollection(withEnd: Date()) { (success, error) in
+//            self.builder?.finishWorkout { (workout, error) in
+//                self.workout = workout
+//                DispatchQueue.main.async {
+//                    self.workout = workout
+////                    print("hello")
+//                }
+//            }
+//        }
+        
+        
+        let seconds = 20.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            
-            print(self.workout?.metadata?.keys)
-            
-//            if let workoutMetadata = self.workout?.metadata {
-//                 if let workoutElevation = workoutMetadata["HKElevationAscended"] as? HKQuantity {
-//                     print("Elevation = \(workoutElevation.doubleValue(for: HKUnit.meter()))m")
-//                 }
-//             }
 
-            // Put your code which should be executed with a delay here
+            // TODO: wait until workout! is not null
+
             self.locationViewModel?.routeBuilder?.finishRoute(with: self.workout!, metadata: nil, completion: { (newRoute, error)  in
                 guard newRoute != nil else {
                     print(error)
@@ -178,15 +182,20 @@ class WorkoutManager: NSObject, ObservableObject {
                 self.workoutIsSaved = true
             })
 
-            self.builder?.endCollection(withEnd: Date()) { (success, error) in
-                self.builder?.finishWorkout { (workout, error) in
-                    DispatchQueue.main.async() {
-                        // Update the user interface.
-                    }
-                }
-            }
-
         }
+        
+//        Task(priority: .high) {
+       //            do {
+       //                print("hererere")
+       //                try await builder?.endCollection(at: Date())
+       //                try self.workout = await self.builder?.finishWorkout()
+       //                try await self.locationViewModel?.routeBuilder?.finishRoute(with: self.workout!, metadata: nil)
+       //                self.workoutIsSaved = true
+       //            }
+       //                catch {
+       //                    // Handle error
+       //                }
+       //            }
         
     }
     
